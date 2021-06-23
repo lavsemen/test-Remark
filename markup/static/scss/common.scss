@@ -1,0 +1,280 @@
+// Common styles of the project
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+/*Обнуление*/
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'Manrope', sans-serif;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+/*--------------------*/
+
+.page {
+    &__title {
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+
+    & .gallery__buttons {
+        width: 50px;
+        position: absolute;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+
+        & .gallery__button {
+            margin-right: 8px;
+            display: flex;
+            opacity: 0.4;
+            border-radius: 6px;
+
+            &.gallery__button-prev {
+                transform: rotate(180deg);
+            }
+
+            &:hover {
+                opacity: 1;
+                transition: 0.3s;
+            }
+        }
+    }
+
+    &__gallery {
+        display: flex;
+
+        .gallery__item {
+            margin-top: 32px;
+            padding: 10px;
+
+            img {
+                border-radius: 8px;
+                max-width: 100%;
+            }
+
+            .gallery__text {
+                margin-top: 16px;
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .button__more-details {
+        display: flex;
+        margin-top: 24px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: center;
+
+
+        & button:hover {
+            animation: rotate-animation .4s ease-in;
+        }
+
+        @keyframes rotate-animation {
+            0% {
+                transform: rotateX(0deg)
+            }
+
+            100% {
+                transform: rotateX(360deg)
+            }
+        }
+    }
+
+    .gallery__buttons-low {
+        display: none;
+        margin-top: 16px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 32px;
+
+        & .gallery__button {
+            margin-right: 8px;
+            display: flex;
+            opacity: 0.4;
+            border-radius: 6px;
+
+            &:hover {
+                opacity: 1;
+                transition: 0.3s;
+            }
+        }
+
+        & .gallery__button-prev {
+            transform: rotate(180deg);
+        }
+    }
+
+    .about {
+        margin-top: 48px;
+
+        &__image {
+            float: left;
+            margin-right: 24px;
+            margin-bottom: 24px;
+
+            img {
+                max-width: 100%;
+                max-height: 212px;
+            }
+        }
+
+        &__title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        &__text {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .page__title {
+        font-size: 24px;
+    }
+
+    .gallery__item {
+        &:last-child {
+            display: none;
+        }
+    }
+
+    .about {
+        .about__title {
+            font-size: 16px;
+        }
+
+        .about__text {
+            font-size: 12px;
+        }
+
+        .about__image {
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .about {
+        & .about__title {
+            font-size: 16px;
+        }
+
+        & .about__text {
+            font-size: 12px;
+        }
+    }
+
+    .page {
+        .gallery__buttons-low {
+            display: flex;
+        }
+    }
+
+    .page__header {
+        & .gallery__buttons {
+            display: none;
+        }
+    }
+
+    .gallery__item:nth-child(2) {
+        display: none;
+    }
+}
